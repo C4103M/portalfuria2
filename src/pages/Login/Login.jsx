@@ -27,7 +27,7 @@ function Login() {
         const password = loginPassword;
 
         try {
-            const url = `http://localhost:8080/api/user/userLogin.php?email=${encodeURIComponent(email)}&senha=${encodeURIComponent(password)}`
+            const url = `http://apicaioemns.42web.io/backend/api/user/userLogin.php?email=${encodeURIComponent(email)}&senha=${encodeURIComponent(password)}`
             const response = await fetch(url, {
                 method: 'GET', // Método GET
             })
@@ -58,7 +58,7 @@ function Login() {
         const username = cadastroUsername;
 
         try {
-            const url = `http://localhost:8080/api/user/userCadastro.php?email=${encodeURIComponent(email)}&nome=${encodeURIComponent(username)}&senha=${encodeURIComponent(password)}`
+            const url = `http://apicaioemns.42web.io/backend/api/user/userCadastro.php?email=${encodeURIComponent(email)}&nome=${encodeURIComponent(username)}&senha=${encodeURIComponent(password)}`
             const response = await fetch(url, {
                 method: 'GET', // Método POST
             })
