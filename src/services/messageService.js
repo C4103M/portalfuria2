@@ -3,7 +3,7 @@ export async function buscarConversa(remetente_id, destinatario_id) {
     formData.append('destinatario_id' ,destinatario_id);
     formData.append('remetente_id' ,remetente_id);
     try {
-        const url = "http://apicaioemns.42web.io/backend/api/message/buscarConversa.php";
+        const url = "https://apicaioemns.42web.io/backend/api/message/buscarConversa.php";
         const response = await fetch(url, {
             method: 'POST',
             body: formData
@@ -21,7 +21,7 @@ export async function enviarMensagem(remetente_id, destinatario_id, conteudo) {
     formData.append('conteudo', conteudo);
 
     try {
-        const url = "http://apicaioemns.42web.io/backend/api/message/enviarMensagem.php";
+        const url = "https://apicaioemns.42web.io/backend/api/message/enviarMensagem.php";
         const response = await fetch(url, {
             method: 'POST',
             body: formData

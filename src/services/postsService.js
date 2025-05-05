@@ -9,7 +9,7 @@ export async function inserirPost(formulario, imagem) {
     formData.append('categoria', formulario.categoria);
     formData.append('imagem', imagem);
 
-    const url = 'http://apicaioemns.42web.io/backend/api/posts/insertPost.php';
+    const url = 'https://apicaioemns.42web.io/backend/api/posts/insertPost.php';
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -33,7 +33,7 @@ export async function buscarNoticia(slugRecebido) {
         const formData = new FormData();
         formData.append('slug', slugRecebido);
 
-        const url = 'http://apicaioemns.42web.io/backend/api/posts/buscarPorSlug.php';
+        const url = 'https://apicaioemns.42web.io/backend/api/posts/buscarPorSlug.php';
         const response = await fetch(url, {
             method: 'POST',
             body: formData
@@ -59,7 +59,7 @@ export async function buscarNoticia(slugRecebido) {
 
 export async function listNews() {
     try {
-        const url = 'http://apicaioemns.42web.io/backend/api/posts/listNews.php'
+        const url = 'https://apicaioemns.42web.io/backend/api/posts/listNews.php'
         const response = await fetch(url, {
             method: 'GET'
         })
@@ -82,7 +82,7 @@ export async function atualizarPost(slug, formulario, imagem) {
         formulario.append('imagem', imagem);
     }
 
-    const url = 'http://apicaioemns.42web.io/backend/api/posts/editPost.php';   
+    const url = 'https://apicaioemns.42web.io/backend/api/posts/editPost.php';   
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -102,7 +102,7 @@ export async function atualizarPost(slug, formulario, imagem) {
 
 export async function getComents(slug) {
     try {
-        const url = `http://apicaioemns.42web.io/backend/api/posts/buscarComentarios.php?slug=${slug}`
+        const url = `https://apicaioemns.42web.io/backend/api/posts/buscarComentarios.php?slug=${slug}`
         const response = await fetch(url, {
             method: 'GET',
         })
@@ -124,7 +124,7 @@ export async function inserirComentario(slug, id_autor, conteudo) {
     formData.append('id_autor', id_autor);
     formData.append('conteudo', conteudo);
     try {
-        const url = "http://apicaioemns.42web.io/backend/api/posts/inserirComentario.php";
+        const url = "https://apicaioemns.42web.io/backend/api/posts/inserirComentario.php";
         const response = await fetch(url, {
             method: 'POST',
             body: formData

@@ -1,5 +1,5 @@
 export async function excluirConta(id) {
-    const url = `http://apicaioemns.42web.io/backend/api/user/userDelete.php?id=${id}`;
+    const url = `https://apicaioemns.42web.io/backend/api/user/userDelete.php?id=${id}`;
 
     try {
         const response = await fetch(url, {
@@ -14,7 +14,7 @@ export async function excluirConta(id) {
 }
 
 export async function alterarNome(id, newName, senha) {
-    const url = `http://apicaioemns.42web.io/backend/api/user/alterName.php?id=${id}&newName=${newName}&senha=${senha}`;
+    const url = `https://apicaioemns.42web.io/backend/api/user/alterName.php?id=${id}&newName=${newName}&senha=${senha}`;
     // console.log(url);
 
     try {
@@ -33,7 +33,7 @@ export async function alterarNome(id, newName, senha) {
     }
 }
 export async function alterarEmail(id, newEmail, senha) {
-    const url = `http://apicaioemns.42web.io/backend/api/user/alterEmail.php?id=${id}&newEmail=${newEmail}&senha=${senha}`;
+    const url = `https://apicaioemns.42web.io/backend/api/user/alterEmail.php?id=${id}&newEmail=${newEmail}&senha=${senha}`;
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -50,7 +50,7 @@ export async function alterarEmail(id, newEmail, senha) {
     }
 }
 export async function alterarSenha(id, newSenha, senha) {
-    const url = `http://apicaioemns.42web.io/backend/api/user/alterSenha.php?id=${id}&newPassword=${newSenha}&senha=${senha}`;
+    const url = `https://apicaioemns.42web.io/backend/api/user/alterSenha.php?id=${id}&newPassword=${newSenha}&senha=${senha}`;
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -69,7 +69,7 @@ export async function alterarSenha(id, newSenha, senha) {
     }
 }
 export async function alterarFoto(id, formData) {
-    const url = `http://apicaioemns.42web.io/backend/api/user/alterFoto.php`;
+    const url = `https://apicaioemns.42web.io/backend/api/user/alterFoto.php`;
 
     formData.append('id', id);
 
@@ -98,7 +98,7 @@ export async function alterarFoto(id, formData) {
 
 export async function ListUsers() {
     try {
-        const url = 'http://apicaioemns.42web.io/backend/api/user/userList.php';
+        const url = 'https://apicaioemns.42web.io/backend/api/user/userList.php';
         const response = await fetch(url, {
             method: 'GET',
         });
