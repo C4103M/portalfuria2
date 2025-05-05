@@ -21,18 +21,18 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />}/>
 					<Route path="/portalfuria2/" element={<Home />}/>
-					<Route path="/login" element={<Login />} />
-					<Route path="/config" element={<Config />} />
-					<Route path="/admin" element={<Admin />} />
-					<Route path="/news" element={<News />} />
-					<Route path="/noticias" element={<News />} />
-					<Route path="/noticias/:slug" element={<PostDetalhado />} />
-					<Route path="/news/:slug" element={<PostDetalhado />} />
-					<Route path="/create" element={<CreatePost />} />
-					<Route path="/moderate" element={<Moderate/>} />
-					<Route path="/editPosts" element={<EditPost/>}/>
-					<Route path="/edit/:slug" element={<EditPostExpand />} />
-					<Route path="/chat/:user_id" element={<Chat />} />
+					<Route path="/portalfuria2/login" element={<Login />} />
+					<Route path="/portalfuria2/config" element={<Config />} />
+					<Route path="/portalfuria2/admin" element={<Admin />} />
+					<Route path="/portalfuria2/news" element={<News />} />
+					<Route path="/portalfuria2/noticias" element={<News />} />
+					<Route path="/portalfuria2/noticias/:slug" element={<PostDetalhado />} />
+					<Route path="/portalfuria2/news/:slug" element={<PostDetalhado />} />
+					<Route path="/portalfuria2/create" element={<CreatePost />} />
+					<Route path="/portalfuria2/moderate" element={<Moderate/>} />
+					<Route path="/portalfuria2/editPosts" element={<EditPost/>}/>
+					<Route path="/portalfuria2/edit/:slug" element={<EditPostExpand />} />
+					<Route path="/portalfuria2/chat/:user_id" element={<Chat />} />
 				</Routes>
 			</BrowserRouter>
 		</>

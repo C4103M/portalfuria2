@@ -24,10 +24,10 @@ function Profile() {
     }, [dados]);
 
     const handleLoginClick = () => {
-        navigate('/login');
+        navigate('/portalfuria2/login');
     };
     const handleConfigClick = () => {
-        navigate('/config');
+        navigate('/portalfuria2/config');
     };
 
     return (

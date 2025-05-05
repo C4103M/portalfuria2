@@ -16,7 +16,7 @@ export function isTokenExpired(token) {
         const currentTime = Date.now() / 1000;
         if(decoded.exp < currentTime) {
             window.localStorage.removeItem('token');
-            window.location.href = '/login';
+            window.location.href = '/portalfuria2/login';
         }
     }
 }
@@ -27,7 +27,7 @@ export function isAdmin(token) {
         console.log(decoded.data.isAdmin);
         
         if(decoded.data.isAdmin != 1) {
-            window.location.href = '/login';
+            window.location.href = '/portalfuria2/login';
         }
     }
 }

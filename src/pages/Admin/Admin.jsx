@@ -13,17 +13,17 @@ function Admin() {
             <Header />
             <div className="w-full flex justify-center">
                 <div className="w=[40%] flex gap-10 mt-30">
-                    <Link to='/moderate' className='link'>
+                    <Link to='/portalfuria2/moderate' className='link'>
                         <div className="border-2 p-10 rounded-2xl ">
                             Moderação de Usuários
                         </div>
                     </Link>
-                    <Link to='/editPosts' className="link">
+                    <Link to='/portalfuria2/editPosts' className="link">
                         <div className="border-2 p-10 rounded-2xl">
                             Gerenciar Posts
                         </div>
                     </Link>
-                    <Link to='/create' className="link">
+                    <Link to='/portalfuria2/create' className="link">
                         <div className="border-2 p-10 rounded-2xl">
                             Criar Publicações
                         </div>

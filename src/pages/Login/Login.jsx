@@ -18,7 +18,7 @@ function Login() {
         settgcadastro((prev) => !prev);
     };
     if (localStorage.getItem('token')) {
-        window.location.href = '/';
+        window.location.href = '/portalfuria2';
     }
 
     async function userLogin(e) {

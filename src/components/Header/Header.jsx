@@ -20,7 +20,7 @@ function Header() {
     }, []);
 
     function redirectHome() {
-        window.location.href = '/';
+        window.location.href = '/portalfuria2';
     }
 
     function toggleMenu() {

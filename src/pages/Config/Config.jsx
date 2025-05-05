@@ -30,7 +30,7 @@ function Config() {
             }
         } else {
             isLoged(false);
-            navigate('/');
+            navigate('/portalfuria2');
         }
 
 
@@ -40,7 +40,7 @@ function Config() {
     }
     function logOff() {
         localStorage.removeItem('token');
-        navigate('/login');
+        navigate('/portalfuria2/login');
     };
     const handleAlterarNome = (novoNome, senha) => {
         authService.alterarNome(dados.id, novoNome, senha); // Chama o serviço com os dados
