@@ -31,7 +31,7 @@ function Login() {
 
         try {
             const url = 'https://apicaioemns.42web.io/backend/api/user/userLogin.php';
-            const proxy = 'https://corsproxy.io/?';
+            const proxy = 'https://corsproxy.io/?url=';
             const response = await fetch(proxy + encodeURIComponent(url), {
                 method: 'POST',
                 body: formData,

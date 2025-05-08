@@ -1,4 +1,4 @@
-const proxy = 'https://corsproxy.io/?';
+const proxy = 'https://corsproxy.io/?url=';
 
 export async function excluirConta(id) {
     const url = `${proxy}https://apicaioemns.42web.io/backend/api/user/userDelete.php?id=${id}`;
