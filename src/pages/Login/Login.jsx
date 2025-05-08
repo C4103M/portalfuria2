@@ -36,7 +36,8 @@ function Login() {
                 method: 'POST',
                 body: formData,
             });
-            const result = await response.json();
+            const result = await response.text();
+            log(result);
             if (result.status === 'success') {
                 console.log('Login bem-sucedido!');
                 localStorage.setItem('token', result.token);
@@ -63,7 +64,7 @@ function Login() {
 
         try {
             const url = 'https://apicaioemns.42web.io/backend/api/user/userCadastro.php';
-            const proxy = 'https://corsproxy.io/?';
+            const proxy = 'https://corsproxy.io/?url=';
             const response = await fetch(proxy + encodeURIComponent(url), {
                 method: 'POST',
                 body: formData,
