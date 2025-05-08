@@ -1,5 +1,7 @@
+const proxy = 'https://corsproxy.io/?';
+
 export async function excluirConta(id) {
-    const url = `https://apicaioemns.42web.io/backend/api/user/userDelete.php?id=${id}`;
+    const url = `${proxy}https://apicaioemns.42web.io/backend/api/user/userDelete.php?id=${id}`;
 
     try {
         const response = await fetch(url, {
@@ -14,8 +16,7 @@ export async function excluirConta(id) {
 }
 
 export async function alterarNome(id, newName, senha) {
-    const url = `https://apicaioemns.42web.io/backend/api/user/alterName.php?id=${id}&newName=${newName}&senha=${senha}`;
-    // console.log(url);
+    const url = `${proxy}https://apicaioemns.42web.io/backend/api/user/alterName.php?id=${id}&newName=${newName}&senha=${senha}`;
 
     try {
         const response = await fetch(url, {
@@ -32,8 +33,9 @@ export async function alterarNome(id, newName, senha) {
         throw error; // relança o erro para o componente lidar
     }
 }
+
 export async function alterarEmail(id, newEmail, senha) {
-    const url = `https://apicaioemns.42web.io/backend/api/user/alterEmail.php?id=${id}&newEmail=${newEmail}&senha=${senha}`;
+    const url = `${proxy}https://apicaioemns.42web.io/backend/api/user/alterEmail.php?id=${id}&newEmail=${newEmail}&senha=${senha}`;
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -49,8 +51,9 @@ export async function alterarEmail(id, newEmail, senha) {
         throw error; // relança o erro para o componente lidar
     }
 }
+
 export async function alterarSenha(id, newSenha, senha) {
-    const url = `https://apicaioemns.42web.io/backend/api/user/alterSenha.php?id=${id}&newPassword=${newSenha}&senha=${senha}`;
+    const url = `${proxy}https://apicaioemns.42web.io/backend/api/user/alterSenha.php?id=${id}&newPassword=${newSenha}&senha=${senha}`;
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -68,8 +71,9 @@ export async function alterarSenha(id, newSenha, senha) {
         throw error; // relança o erro para o componente lidar
     }
 }
+
 export async function alterarFoto(id, formData) {
-    const url = `https://apicaioemns.42web.io/backend/api/user/alterFoto.php`;
+    const url = `${proxy}https://apicaioemns.42web.io/backend/api/user/alterFoto.php`;
 
     formData.append('id', id);
 
@@ -80,9 +84,6 @@ export async function alterarFoto(id, formData) {
         });
 
         const result = await response.json();
-        // const result = await response.text(); 
-        // console.log(result); // Verifique o que está sendo retornado pela API
-
         if (result.status === 'success') {
             localStorage.setItem('token', result.token);
             console.log(result.status);
@@ -98,7 +99,7 @@ export async function alterarFoto(id, formData) {
 
 export async function ListUsers() {
     try {
-        const url = 'https://apicaioemns.42web.io/backend/api/user/userList.php';
+        const url = `${proxy}https://apicaioemns.42web.io/backend/api/user/userList.php`;
         const response = await fetch(url, {
             method: 'GET',
         });

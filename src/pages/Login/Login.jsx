@@ -30,7 +30,9 @@ function Login() {
         formData.append('senha', loginPassword);
 
         try {
-            const response = await fetch('https://apicaioemns.42web.io/backend/api/user/userLogin.php', {
+            const url = 'https://apicaioemns.42web.io/backend/api/user/userLogin.php';
+            const proxy = 'https://corsproxy.io/?';
+            const response = await fetch(proxy + encodeURIComponent(url), {
                 method: 'POST',
                 body: formData,
             });
@@ -60,7 +62,9 @@ function Login() {
         formData.append('senha', cadastroPassword);
 
         try {
-            const response = await fetch('https://apicaioemns.42web.io/backend/api/user/userCadastro.php', {
+            const url = 'https://apicaioemns.42web.io/backend/api/user/userCadastro.php';
+            const proxy = 'https://corsproxy.io/?';
+            const response = await fetch(proxy + encodeURIComponent(url), {
                 method: 'POST',
                 body: formData,
             });
