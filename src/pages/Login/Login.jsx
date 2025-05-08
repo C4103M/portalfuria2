@@ -38,18 +38,18 @@ function Login() {
             });
             const result = await response.text();
             log(result);
-            if (result.status === 'success') {
-                console.log('Login bem-sucedido!');
-                localStorage.setItem('token', result.token);
-                isLoged(true);
-                navigate('/');
-            } else {
-                setStatusInfo({
-                    status: result.status,
-                    mensagem: result.message,
-                    codigo: result.codigo,
-                });
-            }
+            // if (result.status === 'success') {
+            //     console.log('Login bem-sucedido!');
+            //     localStorage.setItem('token', result.token);
+            //     isLoged(true);
+            //     navigate('/');
+            // } else {
+            //     setStatusInfo({
+            //         status: result.status,
+            //         mensagem: result.message,
+            //         codigo: result.codigo,
+            //     });
+            // }
         } catch (error) {
             console.error('Erro ao processar o login:', error);
         }
