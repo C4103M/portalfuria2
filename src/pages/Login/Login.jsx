@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Status from "../../components/Status/Status.jsx";
 import Header from "../../components/Header/Header.jsx";
+
 function Login() {
     const navigate = useNavigate();
     const [tgcadastro, settgcadastro] = useState(false);
@@ -17,27 +18,28 @@ function Login() {
     const toggleTgCadastro = () => {
         settgcadastro((prev) => !prev);
     };
+
     if (localStorage.getItem('token')) {
         window.location.href = '/portalfuria2';
     }
 
     async function userLogin(e) {
-        e.preventDefault(); // Previne o comportamento padrão do formulário
-        const email = loginEmail;
-        const password = loginPassword;
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('email', loginEmail);
+        formData.append('senha', loginPassword);
 
         try {
-            const url = `https://apicaioemns.42web.io/backend/api/user/userLogin.php?email=${encodeURIComponent(email)}&senha=${encodeURIComponent(password)}`
-            const response = await fetch(url, {
-                method: 'GET', // Método GET
-            })
-            const result = await response.json(); // Aguarda a resposta e converte para JSON
-            if (result.status == 'success') {
+            const response = await fetch('https://apicaioemns.42web.io/backend/api/user/userLogin.php', {
+                method: 'POST',
+                body: formData,
+            });
+            const result = await response.json();
+            if (result.status === 'success') {
                 console.log('Login bem-sucedido!');
                 localStorage.setItem('token', result.token);
                 isLoged(true);
                 navigate('/');
-                // Redirecionar para a página inicial ou outra página após o login
             } else {
                 setStatusInfo({
                     status: result.status,
@@ -45,29 +47,28 @@ function Login() {
                     codigo: result.codigo,
                 });
             }
-
         } catch (error) {
             console.error('Erro ao processar o login:', error);
         }
     }
 
     async function userCadastro(e) {
-        e.preventDefault(); // Previne o comportamento padrão do formulário
-        const email = cadastroEmail;
-        const password = cadastroPassword;
-        const username = cadastroUsername;
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('email', cadastroEmail);
+        formData.append('nome', cadastroUsername);
+        formData.append('senha', cadastroPassword);
 
         try {
-            const url = `https://apicaioemns.42web.io/backend/api/user/userCadastro.php?email=${encodeURIComponent(email)}&nome=${encodeURIComponent(username)}&senha=${encodeURIComponent(password)}`
-            const response = await fetch(url, {
-                method: 'GET', // Método POST
-            })
-            const result = await response.json(); // Aguarda a resposta e converte para JSON
+            const response = await fetch('https://apicaioemns.42web.io/backend/api/user/userCadastro.php', {
+                method: 'POST',
+                body: formData,
+            });
+            const result = await response.json();
             if (result.status === 'success') {
                 console.log('Cadastro bem-sucedido!');
                 localStorage.setItem('token', result.token);
                 isLoged(true);
-                // Redirecionar ou realizar outra ação
             } else {
                 setStatusInfo({
                     status: result.status,
@@ -111,7 +112,7 @@ function Login() {
                 <p>Aviso: As informações como senha passam por criptografia para a sua segurança</p>
             </div>
 
-            {/* Formulário de tgcadastro */}
+            {/* Formulário de Cadastro */}
             <div className={`m-auto  flex align-center flex-col gap-4 w-[420px] bg-gray-800 border-2 
                 border-[var(--main-border-color)] rounded-lg p-4 transition-all duration-500 ease-in-out 
                 ${tgcadastro ? 'opacity-100 max-h-[800px]' : 'opacity-0 max-h-0 overflow-hidden'}`}
