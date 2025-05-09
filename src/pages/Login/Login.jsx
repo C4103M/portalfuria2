@@ -30,26 +30,23 @@ function Login() {
         formData.append('senha', loginPassword);
 
         try {
-            const url = 'https://apicaioemns.42web.io/backend/api/user/userLogin.php';
-            const proxy = 'https://corsproxy.io/?url=';
-            const response = await fetch(proxy + encodeURIComponent(url), {
+            const response = await fetch('https://apicaioemns.42web.io/backend/api/user/userLogin.php', {
                 method: 'POST',
                 body: formData,
             });
-            const result = await response.text();
-            log(result);
-            // if (result.status === 'success') {
-            //     console.log('Login bem-sucedido!');
-            //     localStorage.setItem('token', result.token);
-            //     isLoged(true);
-            //     navigate('/');
-            // } else {
-            //     setStatusInfo({
-            //         status: result.status,
-            //         mensagem: result.message,
-            //         codigo: result.codigo,
-            //     });
-            // }
+            const result = await response.json();
+            if (result.status === 'success') {
+                console.log('Login bem-sucedido!');
+                localStorage.setItem('token', result.token);
+                isLoged(true);
+                navigate('/');
+            } else {
+                setStatusInfo({
+                    status: result.status,
+                    mensagem: result.message,
+                    codigo: result.codigo,
+                });
+            }
         } catch (error) {
             console.error('Erro ao processar o login:', error);
         }
@@ -63,9 +60,7 @@ function Login() {
         formData.append('senha', cadastroPassword);
 
         try {
-            const url = 'https://apicaioemns.42web.io/backend/api/user/userCadastro.php';
-            const proxy = 'https://corsproxy.io/?url=';
-            const response = await fetch(proxy + encodeURIComponent(url), {
+            const response = await fetch('https://apicaioemns.42web.io/backend/api/user/userCadastro.php', {
                 method: 'POST',
                 body: formData,
             });
