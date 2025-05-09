@@ -4,6 +4,7 @@ export async function excluirConta(id) {
     try {
         const response = await fetch(url, {
             method: 'GET',
+            credentials: 'include',
         });
         const result = await response.json();
         return result;
@@ -20,6 +21,7 @@ export async function alterarNome(id, newName, senha) {
     try {
         const response = await fetch(url, {
             method: 'GET',
+            credentials: 'include',
         });
         const result = await response.json();
         if (result.status == 'sucess') {
@@ -37,6 +39,7 @@ export async function alterarEmail(id, newEmail, senha) {
     try {
         const response = await fetch(url, {
             method: 'GET',
+            credentials: 'include',
         });
         const result = await response.json();
         if (result.status == 'sucess') {
@@ -54,6 +57,7 @@ export async function alterarSenha(id, newSenha, senha) {
     try {
         const response = await fetch(url, {
             method: 'GET',
+            credentials: 'include',
         });
         const result = await response.json();
         if (result.status == 'sucess') {
@@ -76,6 +80,7 @@ export async function alterarFoto(id, formData) {
     try {
         const response = await fetch(url, {
             method: 'POST',
+            credentials: 'include',
             body: formData,
         });
 
@@ -101,6 +106,7 @@ export async function ListUsers() {
         const url = 'https://apicaioemns.42web.io/backend/api/user/userList.php';
         const response = await fetch(url, {
             method: 'GET',
+            credentials: 'include',
         });
 
         const data = await response.json(); // Extrair json

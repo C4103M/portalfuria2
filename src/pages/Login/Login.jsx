@@ -32,6 +32,7 @@ function Login() {
         try {
             const response = await fetch('https://apicaioemns.42web.io/backend/api/user/userLogin.php', {
                 method: 'POST',
+                credentials: 'include',
                 body: formData,
             });
             const result = await response.json();
@@ -62,6 +63,7 @@ function Login() {
         try {
             const response = await fetch('https://apicaioemns.42web.io/backend/api/user/userCadastro.php', {
                 method: 'POST',
+                credentials: 'include',
                 body: formData,
             });
             const result = await response.json();
